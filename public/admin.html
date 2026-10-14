@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>प्रशासन - मतदान केंद्र</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="hero admin-hero">
+    <div class="hero-mark" aria-hidden="true">प्र</div>
+    <div>
+      <p class="eyebrow">PRAASHASAN</p>
+      <h1>प्रशासन डैशबोर्ड</h1>
+      <p class="hero-subtitle"> मूल मतदान डेटा — गोपनीय पहुंच</p>
+    </div>
+  </header>
+  <main class="admin-main">
+    <section id="login-panel" class="panel narrow">
+      <h2>प्रशासन लॉगिन</h2>
+      <p class="muted">मूल मतदान डेटा सुरक्षित है।</p>
+      <form id="login-form">
+        <label for="password">प्रशासन पासवर्ड</label>
+        <input id="password" type="password" autocomplete="current-password" required>
+        <button class="primary" type="submit">सुरक्षित लॉगिन</button>
+        <p id="login-message" class="message" aria-live="polite"></p>
+      </form>
+      <a href="/" class="back-link">← सार्वजनिक पृष्ठ पर वापस जाएँ</a>
+    </section>
+
+    <section id="dashboard" hidden>
+      <div class="dashboard-heading">
+        <div>
+          <h2>मूल मतदान परिणाम</h2>
+          <p class="muted">डेटाबेस से प्राप्त सटीक गणना</p>
+        </div>
+        <button id="logout" class="secondary">लॉगआउट</button>
+      </div>
+      <div class="stat-card"><span>कुल दर्ज मत</span><strong id="total-votes">0</strong></div>
+      <section class="panel">
+        <h3>प्रत्याशी अनुसार वास्तविक मत</h3>
+        <div id="actual-results" class="bars"></div>
+      </section>
+      <section class="panel">
+        <h3>मतदाता विवरण</h3>
+        <p class="muted small">यह तालिका नाम और चयन दर्शाती है। इस जानकारी को निजी रखें।</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>मतदाता नाम</th><th>वोट दिया गया</th><th>जमा समय (UTC)</th></tr></thead>
+            <tbody id="voter-rows"></tbody>
+          </table>
+        </div>
+      </section>
+      <section class="panel">
+        <h3>प्रत्याशी नाम</h3>
+        <p class="muted small">प्रति पंक्ति एक नाम। नाम पहला मत दर्ज होने से पहले ही संपादित किए जा सकते हैं।</p>
+        <textarea id="candidate-names" rows="4" placeholder="प्रत्याशी 1&#10;प्रत्याशी 2"></textarea>
+        <button id="save-candidates" class="secondary">प्रत्याशी नाम सहेजें</button>
+        <p id="candidate-message" class="message" aria-live="polite"></p>
+      </section>
+
+      <section class="panel">
+        <h3>Simulation / Demo Mode</h3>
+        <p class="muted small">Demo scenarios use a separate database table. They do not modify actual votes or actual results. Activation requires confirmation.</p>
+        <button id="new-simulation" class="secondary" type="button">Create Scenario</button>
+        <div id="simulation-list"></div>
+        <div id="simulation-editor" hidden>
+          <label for="scenario-name">Scenario name</label>
+          <input id="scenario-name" maxlength="80" placeholder="Demo scenario">
+          <div id="scenario-percentages"></div>
+          <p id="scenario-total" class="muted">Total: 0.00%</p>
+          <button id="save-scenario" class="primary" type="button">Save Scenario</button>
+          <button id="cancel-scenario" class="secondary" type="button">Cancel</button>
+          <p id="scenario-message" class="message" aria-live="polite"></p>
+        </div>
+        <div id="simulation-preview"></div>
+      </section>
+    </section>
+  </main>
+  <script src="/admin.js"></script>
+</body>
+</html>
