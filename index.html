@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>मतदान केंद्र</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="hero" role="banner">
+    <div class="hero-mark" aria-hidden="true">म</div>
+    <div>
+      <p class="eyebrow">Makro Sarpanch Matdan</p>
+      <h1>मतदान केंद्र</h1>
+      <p class="hero-subtitle">अपनी पसंद दर्ज करने के लिए आगे बढ़ें।</p>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <p class="progress" aria-live="polite"><span id="progress-text">चरण 1 / 4: स्वागत</span></p>
+
+    <section id="step-welcome" class="step-panel" aria-labelledby="welcome-title">
+      <div class="welcome-media">
+        <figure class="hero-media">
+          <img src="/poll-booth.jpg" alt="मतदान केंद्र में वोट डालती एक महिला मतदाता" width="800" height="526" loading="lazy">
+        </figure>
+        <figure class="village-media">
+          <img src="/village-fields.jpg" alt="हरियाली से घिरे भारतीय गाँव का मनोरम दृश्य" width="800" height="359" loading="lazy">
+        </figure>
+      </div>
+      <div class="welcome-body">
+        <h2 id="welcome-title">मतदान केंद्र</h2>
+        <p>यह एक सामुदायिक मतदान प्रक्रिया है। </p>
+        <p class="muted">अपनी पसंद दर्ज करने के लिए आगे बढ़ें।</p>
+        <button id="continue-btn" class="primary welcome-cta" type="button">मतदान प्रक्रिया शुरू करें</button>
+        <div class="welcome-badges" aria-label="मुख्य विशेषताएँ">
+          <span>सर्वर-पुष्ट मत</span>
+          <span>गोपनीय परिणाम</span>
+          <span>एक बार में एक चरण</span>
+        </div>
+        <p class="muted small"></p>
+      </div>
+    </section>
+
+    <section id="step-selection" class="step-panel" hidden aria-labelledby="selection-title">
+      <h2 id="selection-title">मतदान विकल्प चुनें</h2>
+      <p class="muted">कृपया उपलब्ध विकल्पों को ध्यानपूर्वक देखें।</p>
+      <div id="candidates" class="candidates">विकल्प लोड हो रहे हैं...</div>
+      <p id="selection-message" class="message" aria-live="polite"></p>
+      <div class="step-actions">
+        <button id="selection-back" class="secondary" type="button">वापस जाएँ</button>
+        <button id="selection-next" class="primary" type="button" disabled>आगे बढ़ें</button>
+      </div>
+    </section>
+
+    <section id="step-vote" class="step-panel" hidden aria-labelledby="vote-title">
+      <h2 id="vote-title">अपना नाम दर्ज करें</h2>
+      <p class="muted">चुना गया विकल्प: <strong id="selected-candidate-label">कोई नहीं</strong></p>
+      <form id="vote-form">
+        <label for="voterName">आपका नाम</label>
+        <input id="voterName" name="voterName" maxlength="80" minlength="2" required placeholder="अपना नाम लिखें">
+        <button id="submit-vote" class="primary" type="submit">मत दर्ज करें</button>
+        <p id="vote-message" class="message" aria-live="polite"></p>
+      </form>
+      <button id="vote-back" class="secondary" type="button">वापस जाएँ</button>
+    </section>
+
+    <section id="step-complete" class="step-panel" hidden aria-labelledby="complete-title">
+      <div class="checkmark" aria-hidden="true">✓</div>
+      <h2 id="complete-title">आपकी प्रक्रिया पूरी हो गई है</h2>
+      <p class="muted">सर्वर ने आपकी प्रक्रिया की पुष्टि की है।</p>
+      <p id="completion-message" class="message success" aria-live="polite"></p>
+      <div class="step-actions">
+        <button id="view-results-btn" class="secondary" type="button">परिणाम देखें</button>
+        <button id="start-again" class="primary" type="button">पुनः आरंभ करें</button>
+      </div>
+      <section id="results-section" class="result-panel public-panel" aria-label="परिणाम" hidden>
+        <div class="panel-heading">
+          <h3 id="results-heading">परिणाम </h3>
+        </div>
+        <div class="panel-body">
+          <div id="saved-results" class="bars">अभी कोई परिणाम नहीं दिखाया गया है।</div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>समुदाय मतदान</span>
+    <span aria-hidden="true">•</span>
+    <span></span>
+  </footer>
+
+  <a class="admin-link" href="/admin">Admin Login</a>
+  <script src="/app.js"></script>
+</body>
+</html>
